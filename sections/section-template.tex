@@ -1,0 +1,77 @@
+% 这是可复制的排版组件示例，默认不由 main.tex 引入。
+% 新增内容时优先复制所需片段，不要把示例文字当作报告事实。
+
+\subsection{小节标题}\label{sec:unique-section-id}
+
+\accentpar{【待填写：本节摘要、当前进展或阶段性结论。】}
+
+【待填写：正文内容。】可使用 \imp{强调文字}。
+
+\subsubsection{单图}
+
+% 用真实图片替换占位框时，可改为：
+% \includegraphics[width=0.8\linewidth]{figures/your-image.png}
+\begin{figure}[H]
+  \centering
+  \imageplaceholder{4cm}
+  \caption{【待填写：图片说明】}
+  \label{fig:unique-single-id}
+\end{figure}
+
+\subsubsection{并排图}
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{0.48\linewidth}
+    \centering
+    \imageplaceholder[0.88\linewidth]{3cm}
+    \caption{【待填写：左图说明】}
+  \end{subfigure}\hfill
+  \begin{subfigure}{0.48\linewidth}
+    \centering
+    \imageplaceholder[0.88\linewidth]{3cm}
+    \caption{【待填写：右图说明】}
+  \end{subfigure}
+  \caption{【待填写：组合图片说明】}
+  \label{fig:unique-group-id}
+\end{figure}
+
+\subsubsection{公式}
+
+\begin{equation}
+  y = f(x),
+  \label{eq:unique-equation-id}
+\end{equation}
+
+\subsubsection{表格}
+
+\begin{table}[H]
+  \centering
+  \caption{【待填写：表格说明】}
+  \label{tab:unique-table-id}
+  \begin{tabular}{lll}
+    \toprule
+    列一 & 列二 & 列三 \\
+    \midrule
+    【内容】 & 【内容】 & 【内容】 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsubsection{流程图}
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[
+    font=\small,
+    node distance=12mm,
+    box/.style={draw,rounded corners,minimum width=28mm,minimum height=9mm,align=center},
+    arrow/.style={-{Latex[length=2mm]},thick}
+  ]
+    \node[box] (start) {步骤一};
+    \node[box,right=of start] (next) {步骤二};
+    \draw[arrow] (start) -- (next);
+  \end{tikzpicture}
+  \caption{【待填写：流程图说明】}
+  \label{fig:unique-flow-id}
+\end{figure}

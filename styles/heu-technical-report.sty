@@ -1,0 +1,73 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{styles/heu-technical-report}[2026/08/16 HEU Robotics technical report style]
+
+% ---------- 页面与常用组件 ----------
+\RequirePackage[a4paper,margin=1in]{geometry}
+\RequirePackage{amsmath,amssymb,mathtools}
+\RequirePackage{booktabs}
+\RequirePackage{graphicx}
+\RequirePackage{float}
+\RequirePackage{subcaption}
+\captionsetup{font=small,labelfont=bf}
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
+\RequirePackage[unicode,hidelinks]{hyperref}
+\RequirePackage{fancyhdr}
+\RequirePackage{setspace}
+\onehalfspacing
+
+% ---------- 主题样式 ----------
+\definecolor{wine}{HTML}{7B2434}
+\newcommand{\accentpar}[1]{\par\vspace{2pt}{\color{wine}\bfseries #1}\par}
+\newcommand{\xref}[1]{{\color{wine}\bfseries\ref{#1}}}
+\newcommand{\imp}[1]{{\color{wine}\bfseries #1}}
+\newcommand{\imageplaceholder}[2][0.88\linewidth]{%
+  \fbox{\begin{minipage}[c][#2][c]{#1}\centering 图片占位\end{minipage}}}
+
+% ---------- 字体：西文 Times 系，中文宋体正文、黑体标题 ----------
+\RequirePackage{fontspec}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{%
+  \IfFontExistsTF{TeX Gyre Termes}{\setmainfont{TeX Gyre Termes}}{%
+    \IfFontExistsTF{Liberation Serif}{\setmainfont{Liberation Serif}}{}}}
+\IfFontExistsTF{Arial}{\setsansfont{Arial}}{%
+  \IfFontExistsTF{Liberation Sans}{\setsansfont{Liberation Sans}}{%
+    \IfFontExistsTF{DejaVu Sans}{\setsansfont{DejaVu Sans}}{}}}
+\IfFontExistsTF{Consolas}{\setmonofont{Consolas}}{%
+  \IfFontExistsTF{DejaVu Sans Mono}{\setmonofont{DejaVu Sans Mono}}{}}
+\IfFontExistsTF{SimSun}{\setCJKmainfont{SimSun}}{%
+  \IfFontExistsTF{Noto Serif CJK SC}{\setCJKmainfont{Noto Serif CJK SC}}{%
+    \IfFontExistsTF{FandolSong}{\setCJKmainfont{FandolSong}}{}}}
+\IfFontExistsTF{SimHei}{\setCJKsansfont{SimHei}}{%
+  \IfFontExistsTF{Noto Sans CJK SC}{\setCJKsansfont{Noto Sans CJK SC}}{%
+    \IfFontExistsTF{FandolHei}{\setCJKsansfont{FandolHei}}{}}}
+\IfFontExistsTF{KaiTi}{\setCJKfamilyfont{kai}{KaiTi}}{%
+  \IfFontExistsTF{FandolKai}{\setCJKfamilyfont{kai}{FandolKai}}{%
+    \IfFontExistsTF{Noto Serif CJK SC}{\setCJKfamilyfont{kai}{Noto Serif CJK SC}}{}}}
+
+% ---------- 段落、标题和目录 ----------
+\RequirePackage{indentfirst}
+\setlength{\parindent}{2em}
+\RequirePackage{titlesec}
+\titleformat{\section}{\bfseries\Large\sffamily\raggedright}{\thesection}{1em}{}
+\titleformat{\subsection}{\bfseries\large\sffamily\raggedright}{\thesubsection}{0.8em}{}
+\titleformat{\subsubsection}{\bfseries\normalsize\sffamily\raggedright}{\thesubsubsection}{0.6em}{}
+\setlength{\abovedisplayskip}{8pt}
+\setlength{\belowdisplayskip}{8pt}
+\setcounter{tocdepth}{2}
+
+% ---------- 页眉页脚 ----------
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyfoot[C]{-\,\thepage\,-}
+  \renewcommand{\headrule}{}
+  \renewcommand{\footrulewidth}{0pt}}
+\pagestyle{fancy}
+\setlength{\headheight}{16.5pt}
+\fancyhf{}
+\fancyhead[L]{\small\CJKfamily{kai}HEU Robotics}
+\fancyhead[R]{\small\CJKfamily{kai}\nouppercase{\rightmark}}
+\fancyfoot[C]{-\,\thepage\,-}
+\renewcommand{\headrule}{\hrule height 1.4pt \vspace{1pt} \hrule height 0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\sectionmark}[1]{\markright{\textit{\thesection}\ #1}}

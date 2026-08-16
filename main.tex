@@ -1,0 +1,41 @@
+% HEU Robotics 技术报告模板
+% 编译：latexmk -xelatex -outdir=build main.tex
+\documentclass[12pt,fontset=none]{ctexart}
+
+\usepackage{styles/heu-technical-report}
+\input{report-info}
+
+\title{\sffamily\ReportTitle\\[0.45em]\large\normalfont\ReportSubtitle}
+\author{\ReportAuthors\\[0.45em]\small\ReportOrganization}
+\date{\ReportDate\\[0.25em]\small 版本：\ReportVersion\quad 状态：\ReportStatus}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{plain}
+
+\begin{abstract}
+\input{sections/00-abstract}
+\end{abstract}
+
+\tableofcontents
+\clearpage
+
+\section{背景与目标}\label{sec:background}
+\input{sections/01-background}
+
+\section{技术方案}\label{sec:approach}
+\input{sections/02-approach}
+
+\section{结果与讨论}\label{sec:results}
+\input{sections/03-results}
+
+\section{结论与后续工作}\label{sec:conclusion}
+\input{sections/04-conclusion}
+
+% 如需附录，取消以下注释并新建对应文件。
+% \appendix
+% \section{附录标题}
+% \input{sections/appendix}
+
+\end{document}

@@ -1,0 +1,16 @@
+build/
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.xdv
+*.bbl
+*.blg
+
+# 原始草稿默认只保存在本地。
+draft/**
+!draft/README.md
+!draft/.gitkeep
